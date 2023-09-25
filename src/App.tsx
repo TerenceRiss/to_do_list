@@ -5,7 +5,7 @@ import { TaskFormModal } from "./components/TaskFormModal";
 import { data } from "./data/tasks";
 
 const App = () => {
-  const title = "To do list";
+  const title = "Liste de tâches"; // Votre constante 'title'
   const tasks = data;
   const taskToEdit: any = null;
 
@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div className="main">
       <div className="header">
-        <h1>Replace me using the title const</h1>
+        <h1>{title}</h1> {/* Remplacez le titre en dur par la constante 'title' */}
       </div>
       <Task />
       <button
