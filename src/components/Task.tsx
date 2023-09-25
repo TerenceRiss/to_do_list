@@ -1,17 +1,25 @@
 import React from "react";
 import "./Task.css";
 
-type TaskProps = {};
+// Définissez une interface pour le type des propriétés de Task
+interface TaskProps {
+  task: {
+    id: number;
+    title: string;
+    description: string;
+    done: boolean;
+  };
+}
 
-export const Task = ({}: TaskProps) => {
+export const Task = ({ task }: TaskProps) => {
   return (
     <div className="task-container">
       <div className="task-content">
         <label className="container">
-          <input type="checkbox" checked={false} />
+          <input type="checkbox" checked={task.done} />
           <span className="checkmark"></span>
         </label>
-        <p>"Titre de la tâche"</p>
+        <p>{task.title}</p>
       </div>
       <div className="task-actions">
         <button onClick={() => console.log("edit")}>Edit</button>

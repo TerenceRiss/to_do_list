@@ -3,9 +3,10 @@ import "./App.css";
 import { Task } from "./components/Task";
 import { TaskFormModal } from "./components/TaskFormModal";
 import { data } from "./data/tasks";
+import Header from "./components/Header"; 
 
 const App = () => {
-  const title = "Liste de tâches"; // Votre constante 'title'
+  const title = "Liste de tâches"; 
   const tasks = data;
   const taskToEdit: any = null;
 
@@ -28,10 +29,13 @@ const App = () => {
 
   return (
     <div className="main">
-      <div className="header">
-        <h1>{title}</h1> {/* Remplacez le titre en dur par la constante 'title' */}
+      <Header title={title} />
+      <div className="task-list">
+        {tasks.map((task) => (
+          <Task key={task.id} task={task} />
+        ))}
       </div>
-      <Task />
+      
       <button
         className="add-task-btn"
         onClick={() => console.log("this button should open the modal")}
