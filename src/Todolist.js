@@ -18,3 +18,24 @@ const TodoList = ({ tasks }) => {
         setNewTask("");
       }
     };
+
+    const handleEditTask = (task) => {
+        //le composant 'handleEditTask()' définit la tache en cours de modification, et la valeur de la tache en cours de modifiation
+        setEditTask(task);
+        setEditTaskValue(task.task);
+    };
+
+    const handleSaveTask = () => {
+        //handleTaskSave enregistre les modifications apporte a la tache en cours 
+        setEditTask(null);
+        setEditTaskValue("");
+    };
+
+    const handleDeleteTask = (task) => {
+        //ici on supprime une tache 
+        task.splice(task.indexOf(task), 1);
+    };
+
+    //le composant todolist rend une liste de tâches.
+
+    
