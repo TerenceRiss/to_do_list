@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Task } from "./components/Task";
 import { TaskFormModal } from "./components/TaskFormModal";
 import { data } from "./data/tasks";
 import Header from "./components/Header"; 
-import TasksList from "./components/models/TasksList"; 
+import TasksList from "./components/models/TasksList";
 
 const App = () => {
   const title = "Liste de tâches"; 
@@ -14,6 +14,9 @@ const App = () => {
   const updateTaskState = (taskId: number) => {
     console.error("I need to be implemented");
   };
+
+  //j'utilise useState pour gerer l'etat de la fenetre modale 
+  const [showModal, setShowModal] = useState(false);
 
   const addOrEditTask = (event: any, taskToEditId?: number) => {
     event.preventDefault();
@@ -37,16 +40,15 @@ const App = () => {
       
       <button
         className="add-task-btn"
-        onClick={() => console.log("this button should open the modal")}
+        onClick={() => setShowModal(true)}
       >
         +
       </button>
       <TaskFormModal
-        show={false}
-        handleClose={() =>
-          console.log("pass me a method that will close the modal")
-        }
+        show={showModal}
+        handleClose={() => setShowModal(false)} // Fermez la fenêtre modale lorsque nécessaire
         addOrEditTask={addOrEditTask}
+       
         initialValues={
           taskToEdit != null
             ? {
