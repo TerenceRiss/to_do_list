@@ -4,6 +4,7 @@ import { Task } from "./components/Task";
 import { TaskFormModal } from "./components/TaskFormModal";
 import { data } from "./data/tasks";
 import Header from "./components/Header"; 
+import TasksList from "./components/models/TasksList"; 
 
 const App = () => {
   const title = "Liste de tâches"; 
@@ -31,9 +32,7 @@ const App = () => {
     <div className="main">
       <Header title={title} />
       <div className="task-list">
-        {tasks.map((task) => (
-          <Task key={task.id} task={task} />
-        ))}
+      <TasksList tasks={tasks} />
       </div>
       
       <button
